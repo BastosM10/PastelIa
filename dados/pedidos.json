@@ -1,0 +1,130 @@
+[
+    {
+        "cliente": "joao",
+        "produto": "pastel",
+        "quantidade": 5,
+        "valor_unitario": 8.0,
+        "total": 40.0,
+        "data": "07/07/2026 15:22"
+    },
+    {
+        "cliente": "joao",
+        "produto": "pastel",
+        "quantidade": 5,
+        "valor_unitario": 8.0,
+        "total": 40.0,
+        "data": "07/07/2026 15:29"
+    },
+    {
+        "cliente": "joao",
+        "produto": "pastel",
+        "quantidade": 5,
+        "valor_unitario": 8.0,
+        "total": 40.0,
+        "data": "07/07/2026 15:32"
+    },
+    {
+        "cliente": "joao",
+        "produto": "pastel",
+        "quantidade": 5,
+        "valor_unitario": 8.0,
+        "total": 40.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "maria",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "joao",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "maria",
+        "produto": "pastel",
+        "quantidade": 4,
+        "valor_unitario": 8.0,
+        "total": 32.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "matheus",
+        "produto": "pastel",
+        "quantidade": 22,
+        "valor_unitario": 8.0,
+        "total": 176.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "matheus",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "joao",
+        "produto": "pastel",
+        "quantidade": 23,
+        "valor_unitario": 8.0,
+        "total": 184.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "anota",
+        "produto": "pastel",
+        "quantidade": 4,
+        "valor_unitario": 8.0,
+        "total": 32.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "mauricio",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "nathan",
+        "produto": "pastel",
+        "quantidade": 5,
+        "valor_unitario": 8.0,
+        "total": 40.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "o",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "o",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "data": "07/07/2026"
+    },
+    {
+        "cliente": "joão",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "data": "07/07/2026"
+    }
+]

@@ -1,0 +1,52 @@
+[
+    {
+        "cliente": "joao",
+        "valor": 40.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "joao",
+        "valor": 40.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "maria",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "matheus",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "joao",
+        "valor": 184.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "mauricio",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "nathan",
+        "valor": 40.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "o",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "o",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "joão",
+        "valor": 24.0,
+        "status": "pendente"
+    }
+]
