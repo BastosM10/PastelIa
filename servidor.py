@@ -28,7 +28,25 @@ def inicio():
     return "PastelIA online 🤖"
 
 
+@app.route("/webhook", methods=["POST"])
+def webhook():
 
+    dados = request.json
+
+    mensagem = dados.get(
+        "mensagem",
+        ""
+    )
+
+
+    resposta = responder(mensagem)
+
+
+    return jsonify(
+        {
+            "resposta": resposta
+        }
+    )
 if __name__ == "__main__":
 
     app.run(
