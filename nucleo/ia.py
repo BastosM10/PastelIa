@@ -4,106 +4,207 @@ from nucleo.intencoes import identificar_intencao
 
 from aprendizado.aprender import aprender
 
-from negocio.pedidos import criar_pedido
+from negocio.pedidos import (
+    criar_pedido,
+    apagar_todos_pedidos
+)
 
 from negocio.pagamentos import (
     registrar_divida,
     listar_devedores,
-    registrar_pagamento
+    registrar_pagamento,
+    apagar_todas_dividas
 )
 
 from negocio.relatorios import resumo_texto
+
 from negocio.produtos import listar_produtos
-from negocio.estoque import ver_estoque
+
+from negocio.estoque import (
+    ver_estoque,
+    definir_estoque
+)
+
+
+
+def limpar_nome(nome):
+
+    nome = nome.lower()
+
+
+    palavras = [
+        "anota",
+        "anotado",
+        "anotei",
+        "fiado",
+        "pastel",
+        "pastéis",
+        "pasteis",
+        "pedido",
+        "pegou",
+        "leva",
+        "levou",
+        "para",
+        "pra",
+        "pro"
+    ]
+
+
+    for palavra in palavras:
+
+        nome = nome.replace(
+            palavra,
+            " "
+        )
+
+
+    nome = re.sub(
+        r"\s+",
+        " ",
+        nome
+    )
+
+
+    return nome.strip()
+
+
+
+def extrair_pedido(texto):
+
+    texto = texto.lower()
+
+
+    numeros = re.findall(
+        r"\d+",
+        texto
+    )
+
+
+    quantidade = None
+
+
+    if numeros:
+
+        quantidade = int(
+            numeros[0]
+        )
+
+
+    cliente = texto
+
+
+    cliente = re.sub(
+        r"\d+",
+        " ",
+        cliente
+    )
+
+
+    cliente = limpar_nome(
+        cliente
+    )
+
+
+    return cliente, quantidade
+
+
+
+def extrair_cliente_pagamento(texto):
+
+    texto = texto.lower()
+
+
+    for palavra in [
+        "pagou",
+        "paguei",
+        "pago",
+        "quitou",
+        "acertou",
+        "pix"
+    ]:
+
+        texto = texto.replace(
+            palavra,
+            " "
+        )
+
+
+    return limpar_nome(
+        texto
+    )
 
 
 
 def processar_pedido(mensagem):
 
-    texto = mensagem.lower()
-
-
-    cliente = None
-    quantidade = None
-
-
-    # Exemplos:
-    # anota para João 3
-    # coloca Maria Souza 5
-    # pedido para Carlos 2
-
-    padrao1 = re.search(
-        r"(?:anota|coloca|reserva|pedido)\s+(?:para|pro|pra)\s+(.+?)\s+(\d+)",
-        texto
+    cliente, quantidade = extrair_pedido(
+        mensagem
     )
 
 
-    # Exemplos:
-    # João 3 anotado
-    # Maria Souza 2 pastéis
+    if not cliente or not quantidade:
 
-    padrao2 = re.search(
-        r"(.+?)\s+(\d+)\s*(?:anotado|anota|past[eé]is)?",
-        texto
+        return "Não consegui entender o pedido."
+
+
+
+    pedido = criar_pedido(
+        cliente,
+        "pastel",
+        quantidade
     )
 
 
-    if padrao1:
 
-        cliente = padrao1.group(1).strip()
-        quantidade = int(padrao1.group(2))
+    if pedido is None:
 
-
-    elif padrao2:
-
-        cliente = padrao2.group(1).strip()
-        quantidade = int(padrao2.group(2))
+        return "Produto não encontrado."
 
 
-    if cliente and quantidade:
+
+    if "erro" in pedido:
+
+        return (
+            "⚠️ Estoque insuficiente.\n"
+            f"Disponível: {pedido['disponivel']}"
+        )
 
 
-        pedido = criar_pedido(
+
+    resposta = (
+        "✅ Pedido registrado!\n\n"
+        f"👤 Cliente: {cliente.title()}\n"
+        f"🥟 Quantidade: {quantidade} pastéis\n"
+        f"💰 Total: R$ {pedido['total']:.2f}"
+    )
+
+
+
+    if any(
+        palavra in mensagem.lower()
+        for palavra in [
+            "anota",
+            "anotado",
+            "anotei",
+            "fiado",
+            "devendo",
+            "pendente"
+        ]
+    ):
+
+        registrar_divida(
             cliente,
-            "pastel",
-            quantidade
+            pedido["total"]
         )
 
 
-        if pedido is None:
-
-            return "Não encontrei o produto."
-
-
-        resposta = (
-            "✅ Pedido registrado!\n\n"
-            f"👤 Cliente: {cliente.title()}\n"
-            f"🥟 Quantidade: {quantidade} pastéis\n"
-            f"💰 Total: R$ {pedido['total']:.2f}"
+        resposta += (
+            "\n⚠️ Registrado como fiado."
         )
 
 
-        # anotado significa que ficou devendo
 
-        if (
-            "fiado" in texto
-            or "devendo" in texto
-            or "anotado" in texto
-            or "pendente" in texto
-        ):
-
-            registrar_divida(
-                cliente,
-                pedido["total"]
-            )
-
-            resposta += "\n⚠️ Registrado como pendente."
-
-
-        return resposta
-
-
-    return "Não consegui identificar o pedido."
+    return resposta
 
 
 
@@ -113,14 +214,73 @@ def responder(mensagem):
 
 
 
-    # Pagamento
+    # Atualizar estoque
 
-    if "pagou" in texto:
+    if (
+        ("tenho" in texto or
+         "ainda tenho" in texto or
+         "estou com" in texto)
+        and
+        ("pastel" in texto or
+         "pastéis" in texto or
+         "pasteis" in texto)
+    ):
 
-        cliente = texto.replace(
-            "pagou",
-            ""
-        ).strip()
+
+        numeros = re.findall(
+            r"\d+",
+            texto
+        )
+
+
+        if numeros:
+
+            quantidade = int(
+                numeros[0]
+            )
+
+
+            definir_estoque(
+                "pastel",
+                quantidade
+            )
+
+
+            return (
+                "✅ Estoque atualizado!\n\n"
+                f"🥟 Pastéis disponíveis: {quantidade}"
+            )
+
+
+
+    intencao = identificar_intencao(
+        mensagem
+    )
+
+
+
+    if intencao == "cumprimento":
+
+        return (
+            "Olá! Sou a PastelIA 🤖🥟\n"
+            "Como posso ajudar?"
+        )
+
+
+
+    if intencao == "pedido":
+
+        return processar_pedido(
+            mensagem
+        )
+
+
+
+    if intencao == "pagamento":
+
+        cliente = extrair_cliente_pagamento(
+            mensagem
+        )
 
 
         if registrar_pagamento(cliente):
@@ -129,22 +289,6 @@ def responder(mensagem):
 
 
         return "Não encontrei essa dívida."
-
-
-
-    intencao = identificar_intencao(mensagem)
-
-
-
-    if intencao == "cumprimento":
-
-        return "Olá! Sou a PastelIA 🤖"
-
-
-
-    if intencao == "pedido":
-
-        return processar_pedido(mensagem)
 
 
 
@@ -159,9 +303,6 @@ def responder(mensagem):
 
 
         resposta = "📋 CLIENTES DEVENDO\n\n"
-        resposta += "Cliente | Valor\n"
-        resposta += "----------------\n"
-
 
         total = 0
 
@@ -169,42 +310,81 @@ def responder(mensagem):
         for cliente, valor in dados.items():
 
             resposta += (
-                f"{cliente.title()} | R$ {valor:.2f}\n"
+                f"👤 {cliente.title()}: "
+                f"R$ {valor:.2f}\n"
             )
 
             total += valor
 
 
-        resposta += "----------------\n"
-        resposta += f"Total: R$ {total:.2f}"
+        resposta += (
+            f"\n💰 Total a receber: R$ {total:.2f}"
+        )
 
 
         return resposta
 
 
 
+    if intencao == "apagar_dividas":
+
+        apagar_todas_dividas()
+
+        return "✅ Todas as dívidas foram apagadas."
+
+
+
+    if intencao == "zerar_vendas":
+
+        apagar_todos_pedidos()
+
+        return "✅ Vendas zeradas."
+
+
+
     if intencao == "relatorio":
+
+        if "hoje" in texto:
+
+            return resumo_texto("hoje")
+
+
+        if "semana" in texto:
+
+            return resumo_texto("semana")
+
+
+        if "mes" in texto:
+
+            return resumo_texto("mes")
+
 
         return resumo_texto()
 
 
 
-    if intencao == "produto":
-
-        return str(listar_produtos())
-
-
-
     if intencao == "estoque":
 
-        return str(ver_estoque())
+        return str(
+            ver_estoque()
+        )
+
+
+
+    if intencao == "produto":
+
+        return str(
+            listar_produtos()
+        )
 
 
 
     if intencao == "aprendizado":
 
-        return aprender(mensagem)
+        return aprender(
+            mensagem
+        )
 
 
 
-    return "Ainda não entendi."
+    return "Ainda não entendi 🤔"

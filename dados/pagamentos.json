@@ -17,7 +17,7 @@
     {
         "cliente": "matheus",
         "valor": 24.0,
-        "status": "pendente"
+        "status": "pago"
     },
     {
         "cliente": "joao",
@@ -37,15 +37,135 @@
     {
         "cliente": "o",
         "valor": 24.0,
-        "status": "pendente"
+        "status": "pago"
     },
     {
         "cliente": "o",
         "valor": 24.0,
-        "status": "pendente"
+        "status": "pago"
     },
     {
         "cliente": "joão",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "anota",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "anota",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "paim",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "matheus",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "matheus  do",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "cassariego  do",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "matheus  do",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "joao",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "pasteis joao",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "joao",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "pedr do",
+        "valor": 64.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "pedr jo e carlos",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "pedr do",
+        "valor": 24.0,
+        "status": "pago"
+    },
+    {
+        "cliente": "matheus do",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "pedr do",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "jo do",
+        "valor": 48.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "henrique pasteis do",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "joao do",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "matheus do",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "matheus do",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "joao",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "mateus",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "joao do",
+        "valor": 24.0,
+        "status": "pendente"
+    },
+    {
+        "cliente": "matheus do",
         "valor": 24.0,
         "status": "pendente"
     }

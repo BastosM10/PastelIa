@@ -1,43 +1,53 @@
 [
     {
-        "cliente": "joao",
-        "produto": "pastel",
-        "quantidade": 5,
-        "valor_unitario": 8.0,
-        "total": 40.0,
-        "data": "07/07/2026 15:22"
-    },
-    {
-        "cliente": "joao",
-        "produto": "pastel",
-        "quantidade": 5,
-        "valor_unitario": 8.0,
-        "total": 40.0,
-        "data": "07/07/2026 15:29"
-    },
-    {
-        "cliente": "joao",
-        "produto": "pastel",
-        "quantidade": 5,
-        "valor_unitario": 8.0,
-        "total": 40.0,
-        "data": "07/07/2026 15:32"
-    },
-    {
-        "cliente": "joao",
-        "produto": "pastel",
-        "quantidade": 5,
-        "valor_unitario": 8.0,
-        "total": 40.0,
-        "data": "07/07/2026"
-    },
-    {
-        "cliente": "maria",
+        "cliente": "matheus do",
         "produto": "pastel",
         "quantidade": 3,
         "valor_unitario": 8.0,
         "total": 24.0,
-        "data": "07/07/2026"
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "pedr do",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "jo do",
+        "produto": "pastel",
+        "quantidade": 6,
+        "valor_unitario": 8.0,
+        "total": 48.0,
+        "custo": 30.0,
+        "lucro": 18.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "henrique pegou",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "henrique pasteis do",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
     },
     {
         "cliente": "joao",
@@ -45,86 +55,88 @@
         "quantidade": 3,
         "valor_unitario": 8.0,
         "total": 24.0,
-        "data": "07/07/2026"
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
     },
     {
-        "cliente": "maria",
+        "cliente": "joao do",
         "produto": "pastel",
-        "quantidade": 4,
+        "quantidade": 3,
         "valor_unitario": 8.0,
-        "total": 32.0,
-        "data": "07/07/2026"
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "matheus do",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "matheus do",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "joao",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "mateus",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
+    },
+    {
+        "cliente": "joao do",
+        "produto": "pastel",
+        "quantidade": 3,
+        "valor_unitario": 8.0,
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
     },
     {
         "cliente": "matheus",
         "produto": "pastel",
-        "quantidade": 22,
+        "quantidade": 3,
         "valor_unitario": 8.0,
-        "total": 176.0,
-        "data": "07/07/2026"
+        "total": 24.0,
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
     },
     {
-        "cliente": "matheus",
+        "cliente": "matheus do",
         "produto": "pastel",
         "quantidade": 3,
         "valor_unitario": 8.0,
         "total": 24.0,
-        "data": "07/07/2026"
-    },
-    {
-        "cliente": "joao",
-        "produto": "pastel",
-        "quantidade": 23,
-        "valor_unitario": 8.0,
-        "total": 184.0,
-        "data": "07/07/2026"
-    },
-    {
-        "cliente": "anota",
-        "produto": "pastel",
-        "quantidade": 4,
-        "valor_unitario": 8.0,
-        "total": 32.0,
-        "data": "07/07/2026"
-    },
-    {
-        "cliente": "mauricio",
-        "produto": "pastel",
-        "quantidade": 3,
-        "valor_unitario": 8.0,
-        "total": 24.0,
-        "data": "07/07/2026"
-    },
-    {
-        "cliente": "nathan",
-        "produto": "pastel",
-        "quantidade": 5,
-        "valor_unitario": 8.0,
-        "total": 40.0,
-        "data": "07/07/2026"
-    },
-    {
-        "cliente": "o",
-        "produto": "pastel",
-        "quantidade": 3,
-        "valor_unitario": 8.0,
-        "total": 24.0,
-        "data": "07/07/2026"
-    },
-    {
-        "cliente": "o",
-        "produto": "pastel",
-        "quantidade": 3,
-        "valor_unitario": 8.0,
-        "total": 24.0,
-        "data": "07/07/2026"
-    },
-    {
-        "cliente": "joão",
-        "produto": "pastel",
-        "quantidade": 3,
-        "valor_unitario": 8.0,
-        "total": 24.0,
-        "data": "07/07/2026"
+        "custo": 15.0,
+        "lucro": 9.0,
+        "data": "08/07/2026"
     }
 ]
