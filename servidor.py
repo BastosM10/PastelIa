@@ -1,9 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 from nucleo.ia import responder
 
-
 app = Flask(__name__)
+
+
+@app.route("/")
+def inicio():
+
+    return render_template("index.html")
 
 
 @app.route("/mensagem", methods=["POST"])
@@ -22,12 +27,6 @@ def mensagem():
     )
 
 
-@app.route("/")
-def inicio():
-
-    return "PastelIA online 🤖"
-
-
 @app.route("/webhook", methods=["POST"])
 def webhook():
 
@@ -38,15 +37,15 @@ def webhook():
         ""
     )
 
-
     resposta = responder(mensagem)
-
 
     return jsonify(
         {
             "resposta": resposta
         }
     )
+
+
 if __name__ == "__main__":
 
     app.run(

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PastelIA 🤖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .chat {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        #mensagens {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 75%;
+            padding: 10px;
+        }
+
+        button {
+            width: 20%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="chat">
+
+<h2>PastelIA 🤖</h2>
+
+<div id="mensagens"></div>
+
+<input id="texto" placeholder="Digite sua mensagem">
+<button onclick="enviar()">Enviar</button>
+
+</div>
+
+
+<script>
+
+async function enviar(){
+
+    let campo = document.getElementById("texto");
+    let mensagem = campo.value;
+
+    if(!mensagem) return;
+
+    document.getElementById("mensagens").innerHTML += 
+    "<p><b>Você:</b> " + mensagem + "</p>";
+
+    campo.value = "";
+
+    let resposta = await fetch("/mensagem", {
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            mensagem: mensagem
+        })
+    });
+
+    let dados = await resposta.json();
+
+    document.getElementById("mensagens").innerHTML +=
+    "<p><b>PastelIA:</b> " + dados.resposta + "</p>";
+
+}
+
+</script>
+
+</body>
+</html>
